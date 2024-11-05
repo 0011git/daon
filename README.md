@@ -4,7 +4,8 @@
 ## 🏕 다온펜션 리뉴얼 프로젝트
 기존의 '다온펜션' 사이트를 리디자인 및 재구성한 리뉴얼 프로젝트입니다.
 
-![daon_main](https://github.com/user-attachments/assets/73e8e95a-0835-48ae-8045-f92215cf05e0)
+![daon_main](https://github.com/user-attachments/assets/5a9f5349-b190-457e-961a-282c00bf717b)
+
 
 ## 🔗 사이트 URL
 - [기존 사이트](http://www.daonpension.kr/)
