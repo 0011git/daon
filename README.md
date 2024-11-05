@@ -24,7 +24,7 @@
    - HTML, SCSS, Vanilla Javascript
      
 3. **기간 및 인원**
-   - 2024.06.18 ~ 2024.08.14 (57일), 5인
+   - 2024.06.19 ~ 2024.09.12 (86일), 5인
 
 
      
@@ -44,13 +44,13 @@
    
 2. 카카오, 네이버, 구글 sns 회원가입
 
-3. 챗봇
+3. ChannelIO(채널톡) 챗봇
 
 4. OpenWeather api를 활용한 현지 날씨 추가
 
-6. 카카오맵 api를 활용한 지도 추가
+6. 카카오맵 api를 사용해 지도 추가
 
-7. 모바일, 태블릿 반응형
+7. 모바일(px~), 태블릿(px~) 반응형
 
 
 
@@ -64,7 +64,99 @@
 
 
 
+---
 ## 🙋‍♀️ 개발 상세
-- 담당 직무 : 리소스 수집
-- 담당 페이지 : [주변 소개](https://0011git.github.io/daon/sub4_around_spot.html), [로그인](https://0011git.github.io/daon/login.html), [회원가입](https://0011git.github.io/daon/join.html)
-- 주요 기능 : sns로그인 구현 및 
+- **담당 직무** :
+  리소스 수집
+  
+- **담당 페이지** :
+  [주변 소개](https://0011git.github.io/daon/sub4_around_spot.html), [로그인](https://0011git.github.io/daon/login.html), [회원가입](https://0011git.github.io/daon/join.html)
+- **구현한 주요 기능** :  
+    - 인터페이스 기능 :
+         - 주변 소개 페이지에서 Intersection Observer 사용, 스크롤 시 컨텐츠가 동적으로 나타나도록 구현
+    - 시스템 기능 :
+         - 주변 소개 페이지의 데이터 수집 및 json화
+         - 카카오, 네이버, 구글 sns 회원가입
+         - 로그인 및 회원가입 시 입력값 유효성 검사
+
+
+
+## 🔍 주변 소개
+![daon_around_spot](https://github.com/user-attachments/assets/64228a68-67c4-4fe8-9e99-c3b2079385b1)
+
+
+
+1. **데이터 수집**
+
+   - 데이터(json) 구조: 총 6개의 관광지. 각각의 관광지를 하나의 오브젝트로, 오브젝트를 모아서 한 개의 배열로 구성함
+   - 데이터 종류: 값이 변경되는 것만 수집. 오브젝트마다 동일한 아이콘 등은 수집하지 않음
+   - 텍스트 데이터의 데이터 형식 일관성 유지를 위해 ```<br>```태그가 있는 경우 \n로 저장, 렌더링 시 다시 태그로 치환함
+
+```json
+"sub4_cards":[
+      {
+        "name":"남이섬",
+        "eng":"Nami Island",
+        "link": "https://www.namisum.com/",
+        "img": [
+            {"src": "./img/img_sub4_nami_01.jpg",
+             "alt": "남이섬 한옥 처마 밑 우산"},
+            {"src": "./img/img_sub4_nami_02.jpg",
+             "alt": "남이섬 메타세쿼이아길"}
+            ],
+        "tshort": ["10분", "강원 춘천시 남산면 남이섬길 1", "031-580-8114"],
+        "tlong": "유명 관광지인 남이섬은 배를 타고 들어가는 북한강 위의 반달 모양 섬이다.\n
+남이섬에 입장하면 나무들이 만들어 준 천국이라 해도 과언이 아닐 만큼 아름다운 숲길이 섬 전체를 가득 메우고 있다. 섬 가장자리로 여러 개의 강변 산책길(자전거도로), 수십년 이상 된 나무숲 길이 다수 있으며 푸른 잔디와 축구장, 미니 동물원, 수상레저 등 다양한 볼거리와 즐길거리가 있다. 이 외에도 다양한 전시와 문화행사, 콘서트를 꾸준히 개최하고 있다."
+        },
+{},{},...]
+```
+2. **렌더링**
+
+   - 유지보수의 편리함을 위해 json값이 추가/변경/삭제되어도 코드 변경이 없도록 구현
+       - 고정된 마크업 구조에서 데이터 값만 변경시키는 방식의 innerText대신, 데이터와 태그를 함께 변경시킬 수 있는 innerHTML사용
+       - json 배열 데이터의 각각의 오브젝트를 html로 누적해서 렌더링
+
+
+
+
+3. **스크롤 인터렉션**
+
+   - IntersectionObserver 사용
+   - 스크롤 시 자연스럽게(threshold:0.05) 오브젝트가 하나씩, 아래에서 위로 올라오면서(y축:5%->0%) 보이도록(opacity:0->1) 적용
+```js
+ const elCard = document.querySelectorAll('.sub4_card');
+        const interactive = function(entries){
+            entries.forEach((article) => {
+                if(article.isIntersecting == true){
+                    article.target.classList.add('active');
+                    intersection.unobserve(article.target);
+                }
+            })
+        }
+        const option = {threshold: 0.05};
+        const intersection = new IntersectionObserver(interactive, option);
+        for(let i=0; i<elCard.length; i++){
+            intersection.observe(elCard[i]);
+        }
+```
+
+```css
+.sub4_card {
+    opacity: 0;
+    transition: 1.2s;
+    transform: translateY(5%);
+    &.active{
+        opacity: 1;
+        transform: translateX(0%);
+    }
+```
+
+## 🔑 로그인
+
+
+
+## 🔓 회원가입
+
+
+
+
