@@ -156,24 +156,28 @@
 
 
 ## 🔑 로그인 페이지
-<!-- 이미지 or gif -->
 1. **sns 회원가입 및 로그인**
 
-   (1) 카카오
+![daon_login](https://github.com/user-attachments/assets/2621fa2c-2d53-445b-8161-c37023ff906f)
+
+   (1) **카카오**
+   
+![kakao](https://github.com/user-attachments/assets/8dec7a60-7740-4c0e-803a-8d54b5807013)
+![daon_kakao](https://github.com/user-attachments/assets/5d42fa7c-0451-4b15-973d-8ee54c2ebbdf)
+
+
+
+   (2) **네이버**
 <!-- 이미지 or gif -->
 
 
-   (2) 네이버
+
+   (3) **구글**
 <!-- 이미지 or gif -->
 
 
 
-   (3) 구글
-<!-- 이미지 or gif -->
-
-
-
-2. 자체 로그인
+2. **자체 로그인**
    - DB가 없어 구현 불가
    - 회원가입 페이지와 동일한 유효성 검사 진행
 
@@ -242,8 +246,9 @@
 
 
 
+
 ## ✅ 회원가입 완료 페이지
-<img src="https://github.com/user-attachments/assets/876faeff-722e-427b-ab2f-fe2b87dabd96.png"  width="600"/>
+![join_complete](https://github.com/user-attachments/assets/40b3194c-cf9f-4042-b8c1-5a5ccc0c572c)
 
 1. **이름 표기**
    - 이전 페이지에서 쿠키에 저장한 회원정보에서 이름 데이터를 가져와 표시
