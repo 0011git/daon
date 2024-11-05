@@ -1,4 +1,4 @@
-![logo (1)](https://github.com/user-attachments/assets/a3256e34-4344-4a52-b753-7ee4b3517bdb)
+[![daon](https://github.com/user-attachments/assets/a3256e34-4344-4a52-b753-7ee4b3517bdb)](https://qodql.github.io/daon/)
 
 <img src="https://img.shields.io/badge/HTML5-E34F26?style=flat-square&logo=html5&logoColor=white"/>   <img src="https://img.shields.io/badge/Sass-CC6699?style=flat-square&logo=Sass&logoColor=white"/>   <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black"/>
 ## 🏕 다온펜션 리뉴얼 프로젝트
@@ -9,8 +9,8 @@
 
 ## 🔗 사이트 URL
 - [기존 사이트](http://www.daonpension.kr/)
-- [그룹](https://qodql.github.io/daon/index.html)
-- [개인](https://0011git.github.io/daon/)
+- [리뉴얼](https://qodql.github.io/daon/)
+<!-- - [개인](https://0011git.github.io/daon/) -->
 
 
 
@@ -29,7 +29,7 @@
 
 
      
-## 🙌 담당
+## 🙌 담당 직무
    | 이름   | GitHub                              | 직무              |
    |:--------:|:---------------------------------------:|:-------------------:|
    | 이한주 | [Lee-Hanjoo](https://github.com/Lee-Hanjoo) | 팀장, 디자인     |
@@ -82,7 +82,7 @@
 
 
 ---
-## 🙋‍♀️ 개발 상세
+## 🙋‍♀️ 담당 개발 상세
 - **담당 직무** :
   리소스 수집
   
@@ -98,82 +98,161 @@
 
 
 
-## 🔍 주변 소개
+## 🔍 주변 소개 페이지
 ![daon_around_spot](https://github.com/user-attachments/assets/64228a68-67c4-4fe8-9e99-c3b2079385b1)
-
-
 
 1. **데이터 수집**
 
-   - 데이터(json) 구조: 총 6개의 관광지. 각각의 관광지를 하나의 오브젝트로, 오브젝트를 모아서 한 개의 배열로 구성함
+   - 데이터(json) 구조: 총 6개의 관광지. 각각의 관광지를 하나의 오브젝트로, 오브젝트를 모아서 한 개의 배열```sub4_cards```로 구성함
    - 데이터 종류: 값이 변경되는 것만 수집. 오브젝트마다 동일한 아이콘 등은 수집하지 않음
    - 텍스트 데이터의 데이터 형식 일관성 유지를 위해 ```<br>```태그가 있는 경우 \n로 저장, 렌더링 시 다시 태그로 치환함
 
-```json
-"sub4_cards":[
-      {
-        "name":"남이섬",
-        "eng":"Nami Island",
-        "link": "https://www.namisum.com/",
-        "img": [
-            {"src": "./img/img_sub4_nami_01.jpg",
-             "alt": "남이섬 한옥 처마 밑 우산"},
-            {"src": "./img/img_sub4_nami_02.jpg",
-             "alt": "남이섬 메타세쿼이아길"}
-            ],
-        "tshort": ["10분", "강원 춘천시 남산면 남이섬길 1", "031-580-8114"],
-        "tlong": "유명 관광지인 남이섬은 배를 타고 들어가는 북한강 위의 반달 모양 섬이다.\n
-남이섬에 입장하면 나무들이 만들어 준 천국이라 해도 과언이 아닐 만큼 아름다운 숲길이 섬 전체를 가득 메우고 있다. 섬 가장자리로 여러 개의 강변 산책길(자전거도로), 수십년 이상 된 나무숲 길이 다수 있으며 푸른 잔디와 축구장, 미니 동물원, 수상레저 등 다양한 볼거리와 즐길거리가 있다. 이 외에도 다양한 전시와 문화행사, 콘서트를 꾸준히 개최하고 있다."
-        },
-{},{},...]
-```
+      ```json
+      "sub4_cards":[
+            {
+              "name":"남이섬",
+              "eng":"Nami Island",
+              "link": "https://www.namisum.com/",
+              "img": [
+                  {"src": "./img/img_sub4_nami_01.jpg",
+                   "alt": "남이섬 한옥 처마 밑 우산"},
+                  {"src": "./img/img_sub4_nami_02.jpg",
+                   "alt": "남이섬 메타세쿼이아길"}
+                  ],
+              "tshort": ["10분", "강원 춘천시 남산면 남이섬길 1", "031-580-8114"],
+              "tlong": "유명 관광지인 남이섬은 배를 타고 들어가는 북한강 위의 반달 모양 섬이다.\n남이섬에 입장하면 나무들이 만들어 준 천국이라 해도 과언이 아닐 만큼 아름다운 숲길이 섬 전체를 가득 메우고 있다. 섬 가장자리로 여러 개의 강변 산책길(자전거도로), 수십년 이상 된 나무숲 길이 다수 있으며 푸른 잔디와 축구장, 미니 동물원, 수상레저 등 다양한 볼거리와 즐길거리가 있다. 이 외에도 다양한 전시와 문화행사, 콘서트를 꾸준히 개최하고 있다."
+              },
+      {}, {}, {}, {}, {}]
+      ```
+
 2. **렌더링**
 
    - 유지보수의 편리함을 위해 json값이 추가/변경/삭제되어도 코드 변경이 없도록 구현
+     
        - 고정된 마크업 구조에서 데이터 값만 변경시키는 방식의 innerText대신, 데이터와 태그를 함께 변경시킬 수 있는 innerHTML사용
        - json 배열 데이터의 각각의 오브젝트를 html로 누적해서 렌더링
-
-
-
+       - \n → ```<br>``` 태그로 치환
+         
+      ```js
+       // js
+         const elContents = document.querySelector('.around_spot .contents');
+           data.sub4_cards.forEach((card) => {
+               //tlong의 엔터(\n) -> <br> 태그로 바꾸기
+               let tlongHTML = card.tlong.replace('\n', '<br>');
+               //html 넣기(유지보수(ex데이터추가)를 위해서 innerHTML로 넣는게 더 효율적)
+               elContents.innerHTML += `<article class="sub4_card">...</article>`;
+           })
+      ```
 
 3. **스크롤 인터렉션**
 
    - IntersectionObserver 사용
    - 스크롤 시 자연스럽게(threshold:0.05) 오브젝트가 하나씩, 아래에서 위로 올라오면서(y축:5%->0%) 보이도록(opacity:0->1) 적용
-```js
- const elCard = document.querySelectorAll('.sub4_card');
-        const interactive = function(entries){
-            entries.forEach((article) => {
-                if(article.isIntersecting == true){
-                    article.target.classList.add('active');
-                    intersection.unobserve(article.target);
-                }
-            })
-        }
-        const option = {threshold: 0.05};
-        const intersection = new IntersectionObserver(interactive, option);
-        for(let i=0; i<elCard.length; i++){
-            intersection.observe(elCard[i]);
-        }
-```
-
-```css
-.sub4_card {
-    opacity: 0;
-    transition: 1.2s;
-    transform: translateY(5%);
-    &.active{
-        opacity: 1;
-        transform: translateX(0%);
-    }
-```
-
-## 🔑 로그인
-
-
-
-## 🔓 회원가입
+      ```js
+      // js
+       const elCard = document.querySelectorAll('.sub4_card');
+              const interactive = function(entries){
+                  entries.forEach((article) => {
+                      if(article.isIntersecting == true){
+                          article.target.classList.add('active');
+                          intersection.unobserve(article.target);
+                      }
+                  })
+              }
+              const option = {threshold: 0.05};
+              const intersection = new IntersectionObserver(interactive, option);
+              for(let i=0; i<elCard.length; i++){
+                  intersection.observe(elCard[i]);
+              }
+      ```
+      
+      ```css
+      // scss
+      .sub4_card {
+          opacity: 0;
+          transition: 1.2s;
+          transform: translateY(5%);
+          &.active{
+              opacity: 1;
+              transform: translateX(0%);
+          }
+      ```
 
 
 
+## 🔑 로그인 페이지
+<!-- 이미지 or gif -->
+1. **sns 회원가입 및 로그인**
 
+   (1) 카카오
+<!-- 이미지 or gif -->
+
+
+   (2) 네이버
+<!-- 이미지 or gif -->
+
+
+
+   (3) 구글
+<!-- 이미지 or gif -->
+
+
+
+2. 자체 로그인
+   - DB가 없어 구현 불가
+   - 회원가입 페이지와 동일한 유효성 검사 진행
+
+
+
+## 🔐 회원가입 페이지
+<!-- 이미지 or gif -->
+1. **유효성 검사**
+   
+   : 검사 시점 blur, 조건에 맞지 않는 경우 해당하는 경고 메시지를 인풋박스 하단에 표시
+   
+   (1) **이메일**
+
+
+   (2) **비밀번호**
+
+
+   (3) **비밀번호 확인**
+      - 비밀번호와 동일
+
+
+   (4) **이름**
+
+   (5) **휴대폰 번호**
+      - 010|011|
+      - 
+
+
+2. **기타 기능**
+
+   (1) **x버튼, 비밀번호 보이기 버튼**
+      - 입력값이 존재할 때 활성화
+      - x버튼 클릭 시 입력값 삭제
+      - 눈모양 버튼 클릭 시 비밀번호 표시/가리기
+        
+   (2) **팝업**
+      - 로고 클릭 시 메인으로 이동하는데, 가입 중도 이탈을 막기 위해 팝업을 띄움
+
+
+
+## ✅ 회원가입 완료 페이지
+<!-- 이미지 or gif -->
+1. **이름 표기**
+   - 이전 페이지에서 쿠키에 저장한 회원정보에서 이름 데이터를 가져와 표시
+
+2. **로그인 상태로 전환**
+   - 가입 완료 시 가상의 액세스 토큰 발급, 세션의 login = true로 변경됨
+   - 이후 로그아웃 이전까지 토큰값 유지
+
+
+
+## 💥 트러블 슈팅
+1. **로그인 플로우**
+<!-- 이미지 or gif -->
+
+
+   
