@@ -1,12 +1,12 @@
 ![logo (1)](https://github.com/user-attachments/assets/a3256e34-4344-4a52-b753-7ee4b3517bdb)
 
 <img src="https://img.shields.io/badge/HTML5-E34F26?style=flat-square&logo=html5&logoColor=white"/>   <img src="https://img.shields.io/badge/Sass-CC6699?style=flat-square&logo=Sass&logoColor=white"/>   <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black"/>
-## 🏕다온펜션 리뉴얼 프로젝트
+## 🏕 다온펜션 리뉴얼 프로젝트
 기존의 '다온펜션' 사이트를 리디자인 및 재구성한 리뉴얼 프로젝트입니다.
 
+![daon_main](https://github.com/user-attachments/assets/73e8e95a-0835-48ae-8045-f92215cf05e0)
 
-
-## 🔗URL
+## 🔗 사이트 URL
 - [기존 사이트](http://www.daonpension.kr/)
 - [그룹](https://qodql.github.io/daon/index.html)
 - [개인](https://0011git.github.io/daon/)
@@ -66,5 +66,5 @@
 
 ## 🙋‍♀️ 개발 상세
 - 담당 직무 : 리소스 수집
-- 담당 페이지 : [주변 소개](), [로그인](), [회원가입]()
+- 담당 페이지 : [주변 소개](https://0011git.github.io/daon/sub4_around_spot.html), [로그인](https://0011git.github.io/daon/login.html), [회원가입](https://0011git.github.io/daon/join.html)
 - 주요 기능 : sns로그인 구현 및 
