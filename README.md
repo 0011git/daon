@@ -8,8 +8,8 @@
 
 
 ## 🔗 사이트 URL
-- [기존 사이트](http://www.daonpension.kr/)
-- [리뉴얼](https://qodql.github.io/daon/)
+- 기존 <http://www.daonpension.kr/>
+- 리뉴얼 <https://qodql.github.io/daon/>
 <!-- - [개인](https://0011git.github.io/daon/) -->
 
 
@@ -30,15 +30,16 @@
 
      
 ## 🙌 담당 직무
-   | 이름   | GitHub                              | 직무              |
-   |:--------:|:---------------------------------------:|:-------------------:|
-   | 이한주 | [Lee-Hanjoo](https://github.com/Lee-Hanjoo) | 팀장, 디자인     |
-   | 성주영 | [0011git](https://github.com/0011git) | 리소스 수집  |
-   | 윤경빈 | [qodql](https://github.com/qodql) | 배포		   |
-   | 이홍영 | [Infouse](https://github.com/Infouse) |    개발     |
-   | 허다영 | [Pon119](https://github.com/Pon119) |   기획    |
 
+| 이름   | GitHub                               | 직무           | 해당 |
+|:------:|:-----------------------------------:|:--------------:|:----:|
+| 이한주 | [Lee-Hanjoo](https://github.com/Lee-Hanjoo) | 팀장, 디자인   |      |
+| **성주영** | **[0011git](https://github.com/0011git)** | **리소스 수집** | ✔    |
+| 윤경빈 | [qodql](https://github.com/qodql)   | 배포           |      |
+| 이홍영 | [Infouse](https://github.com/Infouse) | 개발           |      |
+| 허다영 | [Pon119](https://github.com/Pon119) | 기획           |      |
 
+  
 
 ## 💡 새로 추가된 주요 기능들
 1. **메인 페이지 예약 퀵메뉴**
@@ -80,17 +81,20 @@
 [daon Canva](https://www.canva.com/design/DAGPld1e67I/bYGbjtRsdfuDOY-Lullv-w/view?utm_content=DAGPld1e67I&utm_campaign=designshare&utm_medium=link&utm_source=editor)
 
 
+<!--## 📱 스크린샷 : 개인거 말고 팀꺼에 넣기 -->
 
 ---
-## 🙋‍♀️ 담당 개발 상세
+## 🙋‍♀️ 담당 개발 상세 : 성주영
 - **담당 직무** :
   리소스 수집
   
 - **담당 페이지** :
   [주변 소개](https://0011git.github.io/daon/sub4_around_spot.html), [로그인](https://0011git.github.io/daon/login.html), [회원가입](https://0011git.github.io/daon/join.html)
-- **구현한 주요 기능** :  
+
+- **담당 주요 기능** :  
     - 인터페이스 기능 :
          - 주변 소개 페이지에서 Intersection Observer 사용, 스크롤 시 컨텐츠가 동적으로 나타나도록 구현
+           
     - 시스템 기능 :
          - 주변 소개 페이지의 데이터 수집 및 json화
          - 카카오, 네이버, 구글 sns 회원가입
@@ -208,13 +212,30 @@
 <!-- 이미지 or gif -->
 1. **유효성 검사**
    
-   : 검사 시점 blur, 조건에 맞지 않는 경우 해당하는 경고 메시지를 인풋박스 하단에 표시
-   
-   (1) **이메일**
+  : 검사 시점 blur, *조건에 맞지 않는 경우* 해당하는 경고 메시지를 인풋박스 하단에 표시
 
+
+   (1) **이메일**
+      - 아이디 + @ + 도메인 부분으로 구분 (ex. example@daon.com)
+        
+          - 아이디(example) : 영문 대소문자, 숫자, ._-%+- 의 특문 입력 가능
+          - @ 필수
+          - 도메인 앞(daon): 영문 대소문자, 숫자, .-의 특문 입력 가능
+          - . 필수
+          - 도메인 뒤(com): 2~6자, 영문 대소문자 입력 가능
+      ```js
+      const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+      ```
 
    (2) **비밀번호**
-
+      - 아이디 + @ + 도메인 부분으로 구분 (ex. example@daon.com)
+        
+          - 아이디(example) : 영문 대소문자, 숫자, ._-%+- 의 특문 입력 가능
+          - @ 필수
+          - 도메인 앞(daon): 영문 대소문자, 숫자, .-의 특문 입력 가능
+      ```js
+      const pwRegex = /^(?=.*[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?])(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]{8,15}$/;
+      ```
 
    (3) **비밀번호 확인**
       - 비밀번호와 동일
@@ -227,7 +248,7 @@
       - 
 
 
-2. **기타 기능**
+2. **기타**
 
    (1) **x버튼, 비밀번호 보이기 버튼**
       - 입력값이 존재할 때 활성화
