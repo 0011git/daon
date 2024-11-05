@@ -89,7 +89,7 @@
   리소스 수집
   
 - **담당 페이지** :
-  [주변 소개](https://0011git.github.io/daon/sub4_around_spot.html), [로그인](https://0011git.github.io/daon/login.html), [회원가입](https://0011git.github.io/daon/join.html)  (클릭 시 외부 링크로 이동합니다.)
+  [주변 소개](https://0011git.github.io/daon/sub4_around_spot.html), [로그인](https://0011git.github.io/daon/login.html), [회원가입](https://0011git.github.io/daon/join.html) <span style="color: gray; font-size: 0.5em;">(클릭 시 외부 링크로 이동합니다.)</span>
 
 - **담당 주요 기능** :  
     - 인터페이스 기능 :
@@ -105,12 +105,12 @@
 ## 🔍 주변 소개 페이지
 ![daon_around_spot](https://github.com/user-attachments/assets/64228a68-67c4-4fe8-9e99-c3b2079385b1)
 
-1. **데이터 수집**
+1. **데이터(json) 수집**
 
-   - 데이터(json) 구조: 총 6개의 관광지. 각각의 관광지를 하나의 오브젝트로, 오브젝트를 모아서 한 개의 배열```sub4_cards```로 구성함
+   - 데이터 구조: 총 6개의 관광지. 각각의 관광지를 하나의 오브젝트로, 오브젝트를 모아서 한 개의 배열```sub4_cards```로 구성함
    - 데이터 종류: 값이 변경되는 것만 수집. 오브젝트마다 동일한 아이콘 등은 수집하지 않음
    - 텍스트 데이터의 데이터 형식 일관성 유지를 위해 ```<br>```태그가 있는 경우 \n로 저장, 렌더링 시 다시 태그로 치환함
-
+     
       ```json
       "sub4_cards":[
             {
@@ -181,12 +181,10 @@
 
 ## 🔐 회원가입 페이지
 <!-- 이미지 or gif -->
-1. **유효성 검사 함수**
+1. **유효성 검사**
    
-    : 검사 시점 blur, 해당하는 인풋값을 인자값으로 받아 ```{isValid, errorMsg}```를 리턴
-   
-      *조건에 맞지 않는 경우* 해당하는 경고 메시지를 인풋박스 하단에 표시
-   
+    : 검사 시점 blur  
+      *조건에 맞지 않는 경우* 경고 메시지를 해당 인풋박스 하단에 표시,
       조건이 일치하는 경우 profile 변수에 저장
    
 
@@ -228,9 +226,11 @@
         const phoneRegex = /^01[016789][0-9]{3,4}[0-9]{4}$/;
       ```
       - 숫자만 입력 가능, (010,011,016,017,018,019)으로 시작, 10자 이상 11자 미만
+      - 유효성 검사 만족 시 인증번호 활성화
 
 
-3. **기타**
+
+2. **기타**
 
    (1) **x버튼, 비밀번호 보이기 버튼**
       - 입력값이 존재할 때 활성화
@@ -243,7 +243,8 @@
 
 
 ## ✅ 회원가입 완료 페이지
-<!-- 이미지 or gif -->
+<img src="https://github.com/user-attachments/assets/876faeff-722e-427b-ab2f-fe2b87dabd96.png"  width="600"/>
+
 1. **이름 표기**
    - 이전 페이지에서 쿠키에 저장한 회원정보에서 이름 데이터를 가져와 표시
 
