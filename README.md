@@ -84,12 +84,12 @@
 <!--## 📱 스크린샷 : 개인거 말고 팀꺼에 넣기 -->
 
 ---
-## 🙋‍♀️ 담당 개발 상세 : 성주영
+# 담당 개발 상세 : 성주영
 - **담당 직무** :
   리소스 수집
   
 - **담당 페이지** :
-  [주변 소개](https://0011git.github.io/daon/sub4_around_spot.html), [로그인](https://0011git.github.io/daon/login.html), [회원가입](https://0011git.github.io/daon/join.html)
+  [주변 소개](https://0011git.github.io/daon/sub4_around_spot.html), [로그인](https://0011git.github.io/daon/login.html), [회원가입](https://0011git.github.io/daon/join.html)  (클릭 시 외부 링크로 이동합니다.)
 
 - **담당 주요 기능** :  
     - 인터페이스 기능 :
@@ -151,36 +151,7 @@
 3. **스크롤 인터렉션**
 
    - IntersectionObserver 사용
-   - 스크롤 시 자연스럽게(threshold:0.05) 오브젝트가 하나씩, 아래에서 위로 올라오면서(y축:5%->0%) 보이도록(opacity:0->1) 적용
-      ```js
-      // js
-       const elCard = document.querySelectorAll('.sub4_card');
-              const interactive = function(entries){
-                  entries.forEach((article) => {
-                      if(article.isIntersecting == true){
-                          article.target.classList.add('active');
-                          intersection.unobserve(article.target);
-                      }
-                  })
-              }
-              const option = {threshold: 0.05};
-              const intersection = new IntersectionObserver(interactive, option);
-              for(let i=0; i<elCard.length; i++){
-                  intersection.observe(elCard[i]);
-              }
-      ```
-      
-      ```css
-      // scss
-      .sub4_card {
-          opacity: 0;
-          transition: 1.2s;
-          transform: translateY(5%);
-          &.active{
-              opacity: 1;
-              transform: translateX(0%);
-          }
-      ```
+   - 스크롤 시 자연스럽게 오브젝트가 아래에서 위로 올라오면서 보이도록 적용
 
 
 
@@ -210,12 +181,20 @@
 
 ## 🔐 회원가입 페이지
 <!-- 이미지 or gif -->
-1. **유효성 검사**
+1. **유효성 검사 함수**
    
-  : 검사 시점 blur, *조건에 맞지 않는 경우* 해당하는 경고 메시지를 인풋박스 하단에 표시
+    : 검사 시점 blur, 해당하는 인풋값을 인자값으로 받아 ```{isValid, errorMsg}```를 리턴
+   
+      *조건에 맞지 않는 경우* 해당하는 경고 메시지를 인풋박스 하단에 표시
+   
+      조건이 일치하는 경우 profile 변수에 저장
+   
 
 
    (1) **이메일**
+      ```js
+        const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+      ```
       - 아이디 + @ + 도메인 부분으로 구분 (ex. example@daon.com)
         
           - 아이디(example) : 영문 대소문자, 숫자, ._-%+- 의 특문 입력 가능
@@ -223,32 +202,35 @@
           - 도메인 앞(daon): 영문 대소문자, 숫자, .-의 특문 입력 가능
           - . 필수
           - 도메인 뒤(com): 2~6자, 영문 대소문자 입력 가능
-      ```js
-      const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
-      ```
+     
 
    (2) **비밀번호**
-      - 아이디 + @ + 도메인 부분으로 구분 (ex. example@daon.com)
-        
-          - 아이디(example) : 영문 대소문자, 숫자, ._-%+- 의 특문 입력 가능
-          - @ 필수
-          - 도메인 앞(daon): 영문 대소문자, 숫자, .-의 특문 입력 가능
       ```js
-      const pwRegex = /^(?=.*[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?])(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]{8,15}$/;
+        const pwRegex = /^(?=.*[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?])(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]{8,15}$/;
       ```
+      - 영문/숫자/특문 각각 1개 이상의 조합으로 8~15자
+        
+           - 키보드로 입력 가능한 모든 특문을 포함
+      
 
    (3) **비밀번호 확인**
       - 비밀번호와 동일
 
 
    (4) **이름**
+      ```js
+        const nameRegex = /^[가-힣]{2,20}$/;
+      ```
+      - 한글만 입력 가능, 2~20자, 띄어쓰기 불가능
 
    (5) **휴대폰 번호**
-      - 010|011|
-      - 
+      ```js
+        const phoneRegex = /^01[016789][0-9]{3,4}[0-9]{4}$/;
+      ```
+      - 숫자만 입력 가능, (010,011,016,017,018,019)으로 시작, 10자 이상 11자 미만
 
 
-2. **기타**
+3. **기타**
 
    (1) **x버튼, 비밀번호 보이기 버튼**
       - 입력값이 존재할 때 활성화
