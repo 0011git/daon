@@ -89,7 +89,7 @@
 # 담당 개발 상세 : 성주영
 ## 📑 요약
 - **담당 직무** :
-  리소스 수집
+  리소스 수집, 유스 케이스와 플로우 차트 작성
   
 - **담당 페이지** :
   [주변 소개](https://0011git.github.io/daon/sub4_around_spot.html),
@@ -106,6 +106,20 @@
          - 주변 소개 페이지의 데이터 수집 및 json화
          - 카카오, 네이버, 구글 sns 로그인
          - 로그인 및 회원가입 시 입력값 유효성 검사
+
+
+## 👥 유스 케이스
+- 회원과 비회원으로 구분해 작성
+  
+![daon_usecase](https://github.com/user-attachments/assets/a3dcfacc-c7e1-4d61-8972-f705587c1b47)
+
+
+
+## 🔀 플로우 차트
+- 메인 페이지에서부터 객실 예약까지의 흐름
+
+![daon_flowchart1400](https://github.com/user-attachments/assets/a696776f-ee23-4f5e-bee7-b22f5ab988a4)
+
 
 
 
